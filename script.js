@@ -28,12 +28,25 @@ function lightMode() {
     imageMode('light');
 }
 
-switchToggle.addEventListener('change', (event) => {
-   if(event.target.checked) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    darkMode()
-   } else {
-    document.documentElement.setAttribute('data-theme', 'light');
-    lightMode()
-   }
-})
+function changeTheme(event)  {
+    if(event.target.checked) {
+     document.documentElement.setAttribute('data-theme', 'dark');
+     localStorage.setItem('theme', 'dark')
+     darkMode()
+    } else {
+     document.documentElement.setAttribute('data-theme', 'light');
+     localStorage.setItem('theme', 'light');
+     lightMode()
+    }
+ }
+
+switchToggle.addEventListener('change', changeTheme);
+
+const currentTheme = localStorage.getItem('theme');
+if(currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if(currentTheme === 'dark') {
+        switchToggle.checked = true;
+        darkMode();
+    }
+}
