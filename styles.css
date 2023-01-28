@@ -50,10 +50,11 @@ nav a:hover {
   color: var(--on-background);
   border-bottom: 3px solid;
 }
-.home {
+section {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 section h2 {
   text-align: center;
@@ -63,10 +64,13 @@ h1 {
   font-family: 'Kaushan Script', cursive;
   font-size: 3rem;
 }
+/* ------- About --------- */
 .about-container {
+  width: 90%;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(341px, 1fr));
-
+  row-gap: 1.2rem;
 }
 .image-container {
   border: 1px solid var(--secondary-color);
@@ -81,4 +85,15 @@ h1 {
   max-width: 100%;
   width: 200px;
   height: 200px;
+}
+/* ------- contact us -------- */
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 1.2rem;
+}
+.socials i {
+  font-size: 30px;
+  margin-right: 18px;
 }
